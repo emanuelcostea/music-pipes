@@ -1,0 +1,52 @@
+{
+    "server": {
+        "app": {
+            "slogan": "We push the web forward"
+        }
+    },
+    "connections": [
+        {
+            "port": 3000,
+            "labels": ["api"]
+        }
+    ],
+    "registrations": [
+        {
+            "plugin": {
+                "register": "./alive"
+            }
+        }, {
+            "plugin": {
+                "register": "./sources"
+            }
+        }, {
+            "plugin": {
+                "register": "good",
+                "options": {
+                    "ops": {
+                        "interval": 30000
+                    },
+                    "reporters": {
+                        "console": [
+                            {
+                                "module": "good-squeeze",
+                                "name": "Squeeze",
+                                "args": [
+                                    {
+                                        "log": "*",
+                                        "error": "*",
+                                        "response": "*",
+                                        "ops": "*"
+                                    }
+                                ]
+                            },
+                            {
+                                "module": "good-console"
+                            },
+                        "stdout" ]
+                    }
+                }
+            }
+        }
+    ]
+}
