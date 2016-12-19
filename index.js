@@ -9,6 +9,8 @@ const options = {
 };
 const server = new Hapi.Server();
 
+require('./lib/database');
+
 Glue.compose(manifest, options, function (err, server) {
     server.start(function (err) {
         if (err) {
