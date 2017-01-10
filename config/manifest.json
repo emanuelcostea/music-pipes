@@ -27,7 +27,18 @@
             "plugin": {
                 "register": "./rooms"
             }
-        }, {
+        }, { 
+            "plugin": {
+                "register": "hapi-nedb",
+                "options": {
+                    "collections": {
+                        "session": {}
+                    },
+                    "directory": "./tmp",
+                    "timestampData": true
+                }
+            }
+        },{
             "plugin": {
                 "register": "good",
                 "options": {

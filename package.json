@@ -12,10 +12,12 @@
     "good-squeeze": "^5.0.1",
     "hapi": "^15.2.0",
     "hapi-auth-jwt2": "7.2.4",
+    "hapi-nedb": "^1.0.1",
     "joi": "10.0.6",
     "jsonwebtoken": "7.2.1",
     "knex": "^0.12.6",
-    "mysql": "^2.12.0"
+    "mysql": "^2.12.0",
+    "nedb": "^1.8.0"
   },
   "devDependencies": {
     "eslint": "^3.11.0",
