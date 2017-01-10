@@ -17,6 +17,10 @@
             }
         }, {
             "plugin": {
+                "register": "./auth"
+            }
+        }, {
+            "plugin": {
                 "register": "./sources"
             }
         }, {
