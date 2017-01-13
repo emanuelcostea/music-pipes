@@ -7,7 +7,10 @@
     "connections": [
         {
             "port": 3000,
-            "labels": ["api"]
+            "labels": ["api"],
+            "routes": {
+                "cors": true
+            }
         }
     ],
     "registrations": [
@@ -27,18 +30,7 @@
             "plugin": {
                 "register": "./rooms"
             }
-        }, { 
-            "plugin": {
-                "register": "hapi-nedb",
-                "options": {
-                    "collections": {
-                        "session": {}
-                    },
-                    "directory": "./tmp",
-                    "timestampData": true
-                }
-            }
-        },{
+        }, {
             "plugin": {
                 "register": "good",
                 "options": {

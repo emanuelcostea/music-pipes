@@ -3,8 +3,8 @@ exports.up = function(knex, Promise) {
     return Promise.all([
         knex.schema.createTable('sources', function(table){
             table.increments();
-            table.binary('content');
-            table.string('name');
+            table.string('path');
+            table.integer('length');
             table.text('description');
             table.timestamp('created_at').defaultTo(knex.fn.now());
             table.timestamp('updated_at').defaultTo(knex.fn.now());
@@ -12,9 +12,19 @@ exports.up = function(knex, Promise) {
         knex.schema.createTable('rooms', function(table){
             table.increments();
             table.string('name');
+            table.boolean('default').defaultTo(false);
             table.timestamp('created_at').defaultTo(knex.fn.now());
             table.timestamp('updated_at').defaultTo(knex.fn.now());
-        })
+        }),
+        knex.schema.createTable('sessions', function(table){
+            table.increments();
+            table.integer('expire');
+            table.integer('room_id');
+            table.string('user_agent');
+            table.timestamp('created_at').defaultTo(knex.fn.now());
+            table.timestamp('updated_at').defaultTo(knex.fn.now());
+        }),
+        knex('rooms').insert({ name: 'Playground', default: true })
 
     ]);  
 };
@@ -22,7 +32,7 @@ exports.up = function(knex, Promise) {
 exports.down = function(knex, Promise) {
     return Promise.all([
         knex.schema.dropTable('sources'),
-        knex.schema.dropTable('library'),
-        knex.schema.dropTable('rooms')
+        knex.schema.dropTable('rooms'),
+        knex.schema.dropTable('sessions')
     ]);  
 };
