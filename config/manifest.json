@@ -16,6 +16,14 @@
     "registrations": [
         {
             "plugin": {
+                "register": "inert"
+            }
+        }, {
+            "plugin": {
+                "register": "./transport/transport.index"
+            }
+        }, {
+            "plugin": {
                 "register": "./alive"
             }
         }, {

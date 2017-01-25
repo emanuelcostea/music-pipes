@@ -3,6 +3,7 @@ exports.up = function(knex, Promise) {
     return Promise.all([
         knex.schema.createTable('sources', function(table){
             table.increments();
+            table.string('name');
             table.string('path');
             table.integer('length');
             table.text('description');
@@ -18,8 +19,11 @@ exports.up = function(knex, Promise) {
         }),
         knex.schema.createTable('sessions', function(table){
             table.increments();
+            table.string('name');
+            table.string('color');
             table.integer('expire');
             table.integer('room_id');
+            table.boolean('connected').defaultTo(false);
             table.string('user_agent');
             table.timestamp('created_at').defaultTo(knex.fn.now());
             table.timestamp('updated_at').defaultTo(knex.fn.now());

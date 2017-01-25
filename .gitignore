@@ -1,6 +1,7 @@
 # Project related
 config/knexfile.js
 tmp
+files
 
 # Logs
 logs
