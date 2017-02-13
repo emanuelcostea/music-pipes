@@ -17,6 +17,11 @@ exports.up = function(knex, Promise) {
             table.timestamp('created_at').defaultTo(knex.fn.now());
             table.timestamp('updated_at').defaultTo(knex.fn.now());
         }),
+        knex.schema.createTable('rooms_sources', function(table){ 
+            table.increments();
+            table.integer('source_id');
+            table.integer('room_id');
+        }),
         knex.schema.createTable('sessions', function(table){
             table.increments();
             table.string('name');
